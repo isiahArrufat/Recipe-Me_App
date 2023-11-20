@@ -1,31 +1,39 @@
+document.querySelector('.searchForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    const inputValue = document.querySelector('#input').value.trim();
+    
+    if (inputValue !== '') {
+        fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${inputValue}`)
+            .then((res) => res.json())
+            .then((data) => {
+                const main = document.querySelector("main");
 
-const drinksOnPage = document.querySelector(".drink-test");
+                data.drinks.forEach(drink => {
+                    console.log(drink);
 
-fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data);
-    const main = document.querySelector("main")
-    data.drinks.forEach(drink => {
-        
-        console.log("Calling extractProperties");
-      const properties = extractProperties(drink, ['strImageSource', "strDrink", "strAlcoholic", 'strGlass', 'strInstructions']);
-    const drkIngredients = filterNullIngredients(drink)
+                    const properties = extractProperties(drink, ['strImageSource', "strDrink", "strAlcoholic", 'strGlass', 'strInstructions']);
+                    const drkIngredients = filterNullIngredients(drink);
 
-        
-        main.innerHTML +=
-        `<article>
-        <img src=${drink.strImageSource} />
-        <h2>${drink.strDrink}</h2>
-        <p>Alcholoic/NonAlchloic: ${drink.strAlcoholic} beverage.</p>
-        <ul>${drkIngredients.outerHTML}</ul>
-        <p> Served In: ${drink.strGlass}</p>
-        <P>${drink.strInstructions}</P>
-        </article>`
+                    main.innerHTML +=
+                        `<article>
+                            <img src=${properties.strImageSource} />
+                            <h2>${properties.strDrink}</h2>
+                            <p>Alcoholic/NonAlcoholic: ${properties.strAlcoholic} beverage.</p>
+                            <ul>${drkIngredients.outerHTML}</ul>
+                            <p>Served In: ${properties.strGlass}</p>
+                            <p>${properties.strInstructions}</p>
+                        </article>`;
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    } else {
+        alert('Please enter a drink name.');
+    }
+});
 
-       
-    })
-  });
 
 
  

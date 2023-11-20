@@ -1,4 +1,4 @@
-# Recipe Me
+# Bar Assist
 
 ## About
-### Recipe Me is An app where the user will pick a item they would like to cook , and the app will render cooking recipes with the item the user itputted to cook with 
+### bar assist is a app where the user will be able to type in a drink name and when submittted  recipe on how to amke the Drink will shownup on the screen.the recipe has a template that has six properties strImageSource', "strDrink", "strAlcoholic", 'strGlass', 'strInstructions.

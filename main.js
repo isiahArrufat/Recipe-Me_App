@@ -40,7 +40,7 @@ window.extractProperties = (drink, propertyName) => {
         const keyForMeasurement = key.replace("strIngredient", "strMeasure")
         // key is strIngredient1 -> secondKey = strMeasure1
         // drink[key] -> Tequila, drink[secondKey] -> 1 1/2 oz 
-        console.log(drink[key], drink[keyForMeasurement])
+        // console.log(drink[key], drink[keyForMeasurement])
         const ingredient = document.createElement("li")
         ingredient.textContent += `${drink[key]} ${drink[keyForMeasurement]}`
         ingredients.append(ingredient)
