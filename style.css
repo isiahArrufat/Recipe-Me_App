@@ -1,16 +1,19 @@
 main {
     background-color: burlywood;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    max-width: 800px;
+     margin: 20px auto;
+     font-family: 'Arial', sans-serif;
 }
 
-body {
+
+
+body, h1, p, ul {
+    margin: 0;
+    padding: 0;
     text-align: center;
     background-color: chocolate;
-}
+  }
+  
 
 .search button {
     display: flex;
@@ -35,3 +38,45 @@ button {
     max-width: 125px;
     text-align: center;
 }
+
+article {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  article img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  article h2 {
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  
+  article p {
+    margin: 10px 0;
+  }
+  
+  
+  article ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  
+  article li {
+    margin: 5px 0;
+  }
+  
+  
+  article p:last-child {
+    font-style: italic;
+    color: #000;
+  }
+  
