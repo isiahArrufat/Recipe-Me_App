@@ -19,21 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
-window.extractProperties = (drink, propertyName) => {
-  
-  };
-  
-  window.filterNullIngredients = (drink) => {
-
-  };
-  
-
 // my helper functions below 
-
-
 // helper function to pull out list of ingredient and there measurements dynamically 
-    window.filterNullIngredients = (drink) => {
+    window.filterNullIngredients = (drink, drinksOnPage) => {
     const ingredients = document.createElement("ul");
     for(const key in drink){
       if(key.includes("strIngredient") && drink[key]){
